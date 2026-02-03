@@ -125,36 +125,22 @@ jobs:
             
             ## 📝 Post Format Reference
             
-            ```markdown
-            ---
-            layout: post
-            title: "Recipe Title in Title Case"
-            date: ${today} 09:00:00 +0000
-            categories: [recipes, meal-type]
-            tags: [relevant, tags, here]
-            excerpt: "Brief SEO-optimized description"
-            prep_time: "15 minutes"
-            cook_time: "30 minutes"
-            servings: 4
-            difficulty: easy
-            ---
+            The final post should follow this structure with YAML frontmatter and markdown sections for the recipe content.
             
-            [Blog-style introduction from copywriter]
+            Required frontmatter fields:
+            - layout: post
+            - title: Recipe title in Title Case
+            - date: ${today} 09:00:00 +0000
+            - categories: [recipes, meal-type]
+            - tags: [relevant, tags]
+            - excerpt: Brief SEO description
+            - prep_time, cook_time, servings, difficulty
             
-            [Optional: Story or context paragraph]
-            
-            ## Ingredients
-            
-            [Ingredients with UK measurements]
-            
-            ## Instructions
-            
-            [Step-by-step instructions]
-            
-            ## Notes
-            
-            [Tips, substitutions, nutritional info]
-            ```
+            Content sections:
+            - Blog-style introduction
+            - Ingredients with UK measurements
+            - Step-by-step instructions
+            - Notes (tips, substitutions, nutritional info)
             
             ---
             
