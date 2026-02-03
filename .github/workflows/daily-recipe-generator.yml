@@ -21,38 +21,38 @@ jobs:
             
             const issueBody = `## 🌱 Daily Plant-Based Recipe
 
-**Date:** ${today}
+            **Date:** ${today}
 
-@copilot using @recipe-workflow please create today's recipe
+            @copilot using @recipe-workflow please create today's recipe
 
----
+            ---
 
-This issue uses the unified recipe workflow agent to create a complete, publication-ready plant-based recipe blog post in a single workflow.
+            This issue uses the unified recipe workflow agent to create a complete, publication-ready plant-based recipe blog post in a single workflow.
 
-## What the Agent Will Create
+            ## What the Agent Will Create
 
-The @recipe-workflow agent will handle:
-- ✅ Recipe creation (100% plant-based, UK measurements, British English)
-- ✅ Image planning with detailed AI generation prompts
-- ✅ Blog-style introduction and storytelling
-- ✅ SEO optimization (titles, meta descriptions, tags)
-- ✅ Editorial review and quality assurance
-- ✅ Jekyll publication formatting
+            The @recipe-workflow agent will handle:
+            - ✅ Recipe creation (100% plant-based, UK measurements, British English)
+            - ✅ Image planning with detailed AI generation prompts
+            - ✅ Blog-style introduction and storytelling
+            - ✅ SEO optimization (titles, meta descriptions, tags)
+            - ✅ Editorial review and quality assurance
+            - ✅ Jekyll publication formatting
 
-## Output
+            ## Output
 
-A complete markdown file ready for the \`_posts/\` directory:
-- Filename: \`${today}-[recipe-name-in-kebab-case].markdown\`
-- Complete YAML frontmatter
-- Publication-ready content
+            A complete markdown file ready for the `\_posts/` directory:
+            - Filename: `${today}-[recipe-name-in-kebab-case].markdown`
+            - Complete YAML frontmatter
+            - Publication-ready content
 
-## Recipe Variety
+            ## Recipe Variety
 
-Please choose from: breakfast, lunch, dinner, snacks, desserts, beverages, baking, salads, soups, mains, sides
+            Please choose from: breakfast, lunch, dinner, snacks, desserts, beverages, baking, salads, soups, mains, sides
 
----
+            ---
 
-**Instructions:** The agent will create a complete recipe post. Once generated, review and commit to the \`_posts/\` directory.`;
+            **Instructions:** The agent will create a complete recipe post. Once generated, review and commit to the `\_posts/` directory.`;
             
             const issue = await github.rest.issues.create({
               owner: context.repo.owner,
