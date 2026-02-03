@@ -19,148 +19,50 @@ jobs:
           script: |
             const today = new Date().toISOString().split('T')[0];
             
-            const issueBody = `## 🌱 Daily Plant-Based Recipe - Multi-Agent Workflow
-            
-            **Date:** ${today}
-            
-            This issue coordinates multiple specialized agents to create, enhance, and publish a complete plant-based recipe blog post.
-            
-            ---
-            
-            ## 📋 Workflow Tasks
-            
-            Complete these tasks in order, with each agent working on their specialized area:
-            
-            ### Task 1: Recipe Creation
-            **Agent:** @recipe-creator
-            
-            Create a new, original plant-based recipe with:
-            - Recipe must be **100% plant-based** (no dairy, meat, eggs, or animal products)
-            - Clear ingredients list with UK measurements (grams, ml, etc.)
-            - Step-by-step cooking instructions
-            - Prep time, cook time, and servings
-            - Difficulty level (easy/medium/advanced)
-            - Use British English and UK ingredient names
-            
-            **Deliverable:** Draft recipe content in proper format
-            
-            ---
-            
-            ### Task 2: Image Planning
-            **Agent:** @image-generation
-            **Prerequisites:** Task 1 complete
-            
-            Plan and describe hero image for the recipe:
-            - Create detailed image description for recipe
-            - Specify styling (rustic, modern, minimalist, etc.)
-            - Describe plating, lighting, and composition
-            - Include props and background elements
-            
-            **Deliverable:** Image generation prompt and placement instructions
-            
-            ---
-            
-            ### Task 3: Blog-Style Introduction
-            **Agent:** @copywriter
-            **Prerequisites:** Tasks 1-2 complete
-            
-            Write engaging blog-style content:
-            - Compelling introduction paragraph (2-3 sentences)
-            - Story or context about the recipe
-            - Why readers will love this dish
-            - Connection to plant-based lifestyle
-            - Use warm, welcoming brand voice
-            - British English throughout
-            
-            **Deliverable:** Introduction and contextual paragraphs
-            
-            ---
-            
-            ### Task 4: SEO Optimization
-            **Agent:** @seo-specialist
-            **Prerequisites:** Tasks 1-3 complete
-            
-            Optimize content for UK search market:
-            - Craft SEO title and meta description
-            - Add relevant tags and categories
-            - Optimize headings for search intent
-            - Add internal linking suggestions
-            - Include excerpt for social sharing
-            - Target UK audience
-            
-            **Deliverable:** SEO metadata and optimization notes
-            
-            ---
-            
-            ### Task 5: Editorial Review
-            **Agent:** @editor
-            **Prerequisites:** Tasks 1-4 complete
-            
-            Review and refine all content:
-            - Verify British English spelling and grammar
-            - Check UK measurements and ingredient names
-            - Ensure consistent tone and voice
-            - Verify recipe clarity and completeness
-            - Check formatting and structure
-            - Final quality assurance
-            
-            **Deliverable:** Polished, publication-ready content
-            
-            ---
-            
-            ### Task 6: Publication
-            **Agent:** @publisher
-            **Prerequisites:** All previous tasks complete
-            
-            Publish the recipe to the blog:
-            - Create file in _posts directory: ${today}-[recipe-name-in-kebab-case].markdown
-            - Add proper YAML frontmatter
-            - Include all content from previous tasks
-            - Ensure Jekyll formatting is correct
-            - Verify date and categories
-            
-            **Deliverable:** Published blog post
-            
-            ---
-            
-            ## 📝 Post Format Reference
-            
-            The final post should follow this structure with YAML frontmatter and markdown sections for the recipe content.
-            
-            Required frontmatter fields:
-            - layout: post
-            - title: Recipe title in Title Case
-            - date: ${today} 09:00:00 +0000
-            - categories: [recipes, meal-type]
-            - tags: [relevant, tags]
-            - excerpt: Brief SEO description
-            - prep_time, cook_time, servings, difficulty
-            
-            Content sections:
-            - Blog-style introduction
-            - Ingredients with UK measurements
-            - Step-by-step instructions
-            - Notes (tips, substitutions, nutritional info)
-            
-            ---
-            
-            ## 🎯 Recipe Inspiration Categories
-            
-            Choose one or more: breakfast, lunch, dinner, snacks, desserts, beverages, baking, salads, soups, mains, sides
-            
-            ---
-            
-            **Note:** Each agent should comment on the issue when their task is complete, then mention the next agent to continue the workflow.`;
+            const issueBody = `## 🌱 Daily Plant-Based Recipe
+
+**Date:** ${today}
+
+@copilot using @recipe-workflow please create today's recipe
+
+---
+
+This issue uses the unified recipe workflow agent to create a complete, publication-ready plant-based recipe blog post in a single workflow.
+
+## What the Agent Will Create
+
+The @recipe-workflow agent will handle:
+- ✅ Recipe creation (100% plant-based, UK measurements, British English)
+- ✅ Image planning with detailed AI generation prompts
+- ✅ Blog-style introduction and storytelling
+- ✅ SEO optimization (titles, meta descriptions, tags)
+- ✅ Editorial review and quality assurance
+- ✅ Jekyll publication formatting
+
+## Output
+
+A complete markdown file ready for the \`_posts/\` directory:
+- Filename: \`${today}-[recipe-name-in-kebab-case].markdown\`
+- Complete YAML frontmatter
+- Publication-ready content
+
+## Recipe Variety
+
+Please choose from: breakfast, lunch, dinner, snacks, desserts, beverages, baking, salads, soups, mains, sides
+
+---
+
+**Instructions:** The agent will create a complete recipe post. Once generated, review and commit to the \`_posts/\` directory.`;
             
             const issue = await github.rest.issues.create({
               owner: context.repo.owner,
               repo: context.repo.repo,
               title: `🌱 Daily Recipe: Plant-Based Recipe for ${today}`,
               body: issueBody,
-              labels: ['recipe', 'automation', 'plant-based', 'multi-agent']
+              labels: ['recipe', 'automation', 'plant-based']
             });
             
-            console.log(`Created multi-step issue #${issue.data.number}: ${issue.data.html_url}`);
+            console.log(`Created recipe issue #${issue.data.number}: ${issue.data.html_url}`);
             
             await github.rest.issues.addAssignees({
               owner: context.repo.owner,
@@ -169,4 +71,4 @@ jobs:
               assignees: ['copilot']
             });
             
-            console.log(`Assigned @copilot to issue #${issue.data.number} to begin with recipe-creator agent`);
+            console.log(`Assigned @copilot with @recipe-workflow agent to issue #${issue.data.number}`);
