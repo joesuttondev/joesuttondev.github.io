@@ -82,7 +82,7 @@ jobs:
               repo: context.repo.repo,
               title: `🌱 Daily Recipe: Plant-Based Recipe for ${today}`,
               body: issueBody,
-              assignees: ['copilot'],
+              assignees: ['copilot-swe-agent[bot]'],
               labels: ['recipe', 'automation', 'plant-based']
             });
             
