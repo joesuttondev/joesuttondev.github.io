@@ -1,0 +1,89 @@
+name: Daily Plant-Based Recipe Generator
+
+on:
+  schedule:
+    - cron: '0 9 * * *'  # Runs daily at 09:00 UTC
+  workflow_dispatch:  # Allows manual triggering for testing
+
+jobs:
+  create-recipe-issue:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      contents: read
+    
+    steps:
+      - name: Generate Recipe Issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const today = new Date().toISOString().split('T')[0];
+            
+            const issueBody = `## 🌱 Daily Plant-Based Recipe Request
+            
+            **Date:** ${today}
+            
+            ### Task
+            Create a new, original plant-based recipe and publish it to the blog.
+            
+            ### Requirements
+            - Recipe must be **100% plant-based** (no dairy, meat, eggs, or animal products)
+            - Recipe should be creative, delicious, and accessible
+            - Include clear ingredients list with measurements
+            - Provide step-by-step cooking instructions
+            - Add cooking time, prep time, and serving size
+            - Include nutritional highlights or health benefits
+            
+            ### File Location
+            Create a new blog post in the \`_posts\` directory with the filename format:
+            \`_posts/${today}-[recipe-name-in-kebab-case].markdown\`
+            
+            ### Post Format
+            Follow the Jekyll blog post format (see existing post for reference):
+            
+            \`\`\`markdown
+            ---
+            layout: post
+            title: "[Your Recipe Title]"
+            date: ${today} 09:00:00 +0000
+            categories: recipes [meal-type]
+            ---
+            
+            [Recipe introduction paragraph]
+            
+            ## Ingredients
+            
+            [List ingredients with measurements]
+            
+            ## Instructions
+            
+            [Step-by-step instructions]
+            
+            ## Notes
+            
+            [Optional: cooking tips, substitutions, nutritional info]
+            \`\`\`
+            
+            ### Recipe Categories to Consider
+            Choose one or more categories: breakfast, lunch, dinner, snacks, desserts, beverages
+            
+            ### Additional Notes
+            - Make the recipe unique and not commonly found online
+            - Consider seasonal ingredients when appropriate
+            - Keep instructions clear and beginner-friendly
+            - Add any relevant tags or categories
+            
+            ---
+            
+            **Assignee:** This issue will be automatically assigned to Copilot for implementation.`;
+            
+            const issue = await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `🌱 Daily Recipe: Plant-Based Recipe for ${today}`,
+              body: issueBody,
+              assignees: ['copilot'],
+              labels: ['recipe', 'automation', 'plant-based']
+            });
+            
+            console.log(`Created issue #${issue.data.number}: ${issue.data.html_url}`);
