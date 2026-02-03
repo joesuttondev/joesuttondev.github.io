@@ -1,3 +1,8 @@
+---
+name: british-english-standards
+description: UK language conventions, measurements, and terminology standards for PlantBased.Blog
+---
+
 # British English Standards Skill
 
 ## Language Standards

@@ -1,3 +1,8 @@
+---
+name: recipe-formatting
+description: Standards and guidelines for structuring recipe content with proper Jekyll frontmatter and markdown
+---
+
 # Recipe Formatting Skill
 
 ## Recipe Structure Standards

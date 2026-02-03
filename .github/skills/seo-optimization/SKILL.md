@@ -1,3 +1,8 @@
+---
+name: seo-optimization
+description: Search engine optimization best practices for food blogs and recipe content targeting UK market
+---
+
 # SEO Optimization Skill
 
 ## On-Page SEO Standards
