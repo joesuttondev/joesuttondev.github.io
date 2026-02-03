@@ -77,13 +77,23 @@ jobs:
             
             **Assignee:** This issue will be automatically assigned to Copilot for implementation.`;
             
+            // Step 1: Create the issue without assignees
             const issue = await github.rest.issues.create({
               owner: context.repo.owner,
               repo: context.repo.repo,
               title: `🌱 Daily Recipe: Plant-Based Recipe for ${today}`,
               body: issueBody,
-              assignees: ['copilot-swe-agent[bot]'],
               labels: ['recipe', 'automation', 'plant-based']
             });
             
             console.log(`Created issue #${issue.data.number}: ${issue.data.html_url}`);
+            
+            // Step 2: Assign Copilot to the issue
+            await github.rest.issues.addAssignees({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issue.data.number,
+              assignees: ['copilot']
+            });
+            
+            console.log(`Assigned @copilot to issue #${issue.data.number}`);
