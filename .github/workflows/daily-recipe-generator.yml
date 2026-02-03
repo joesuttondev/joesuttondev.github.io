@@ -41,8 +41,8 @@ jobs:
 
             ## Output
 
-            A complete markdown file ready for the `posts/` directory:
-            - Filename: `${today}-[recipe-name-in-kebab-case].markdown`
+            A complete markdown file ready for the _posts/ directory:
+            - Filename: ${today}-[recipe-name-in-kebab-case].markdown
             - Complete YAML frontmatter
             - Publication-ready content
 
@@ -52,7 +52,7 @@ jobs:
 
             ---
 
-            **Instructions:** The agent will create a complete recipe post. Once generated, review and commit to the `posts/` directory.`;
+            **Instructions:** The agent will create a complete recipe post. Once generated, review and commit to the _posts/ directory.`;
             
             const issue = await github.rest.issues.create({
               owner: context.repo.owner,
