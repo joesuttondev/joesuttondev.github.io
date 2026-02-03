@@ -11,6 +11,7 @@ The agents and skills in this directory work together to produce well-structured
 ```
 .github/
 ├── agents/          # Specialized agents for different content creation roles
+│   ├── recipe-workflow.md      # 🆕 UNIFIED: Complete recipe workflow (recommended)
 │   ├── recipe-creator.md       # Creates plant-based recipes
 │   ├── copywriter.md           # Writes blog posts and articles
 │   ├── seo-specialist.md       # Optimizes content for search engines
@@ -25,7 +26,56 @@ The agents and skills in this directory work together to produce well-structured
     └── seo-optimization.md           # SEO best practices
 ```
 
-## Agents
+## 🆕 Unified Recipe Workflow Agent (Recommended)
+
+### Recipe Workflow Agent (`recipe-workflow.agent.md`)
+**Role**: Comprehensive recipe creation specialist (REPLACES multi-agent workflow)
+
+**What's New**: This unified agent combines ALL six specialized agents into a single, streamlined workflow that produces complete, publication-ready recipe posts in one invocation.
+
+**Capabilities**:
+- ✅ **Complete End-to-End Workflow**: Handles everything from concept to publication
+- ✅ **Recipe Development**: Creates original, practical plant-based recipes
+- ✅ **Professional Copywriting**: Writes engaging blog-style content
+- ✅ **SEO Optimization**: Integrates keywords and optimizes structure
+- ✅ **Image Planning**: Creates detailed AI image generation prompts
+- ✅ **Editorial Review**: Self-validates quality, grammar, and consistency
+- ✅ **Publication Formatting**: Outputs complete Jekyll-ready markdown files
+
+**Output**: Publication-ready blog post with:
+- Complete Jekyll frontmatter with all metadata
+- Engaging introduction and "Why You'll Love This" section
+- Detailed ingredients and instructions (UK measurements)
+- Pro tips, substitutions, and serving suggestions
+- SEO-optimized titles and content
+- Detailed image generation prompt
+- Internal linking suggestions
+- Proper file naming specification
+
+**When to use**: 
+- **Primary method** for creating new recipes
+- When you want a complete post in one step
+- For consistent, high-quality output every time
+
+**Key Skills Used**: All three skills (`recipe-formatting`, `british-english-standards`, `seo-optimization`)
+
+**How to use**:
+```
+@copilot using @recipe-workflow create a [type] recipe for [occasion/season]
+```
+
+**Example**:
+```
+@copilot using @recipe-workflow create a quick weeknight dinner recipe
+@copilot using @recipe-workflow create a festive Christmas dessert
+@copilot using @recipe-workflow create a summer BBQ recipe for beginners
+```
+
+---
+
+## Traditional Specialized Agents
+
+**Note**: The agents below can still be used individually, but the **Recipe Workflow Agent** is now recommended for recipe creation as it produces complete, publication-ready posts in a single step.
 
 ### 1. Recipe Creator Agent (`recipe-creator.md`)
 **Role**: Expert recipe developer for plant-based cuisine
@@ -193,7 +243,26 @@ The agents and skills in this directory work together to produce well-structured
 
 ## How to Use These Agents
 
-### Basic Workflow
+### 🆕 Recommended: Unified Recipe Workflow
+
+For recipe creation, use the **Recipe Workflow Agent** for a complete, one-step process:
+
+```
+1. Recipe Workflow Agent: Create complete recipe post
+   ↓
+2. Ready to publish! (Copy to _posts/ directory)
+```
+
+**Benefits**:
+- ✅ Single agent invocation instead of 5-6
+- ✅ No manual handoffs between agents
+- ✅ Consistent quality and formatting
+- ✅ Complete publication-ready output
+- ✅ Faster workflow (minutes vs. hours)
+
+### Traditional Multi-Agent Workflow
+
+For other content types or if you prefer granular control:
 
 1. **Content Creation**
    - Use **Recipe Creator Agent** for recipes
@@ -216,7 +285,19 @@ The agents and skills in this directory work together to produce well-structured
 
 ### Example Use Cases
 
-#### Creating a New Recipe
+#### Creating a New Recipe (🆕 Recommended Method)
+```
+1. Recipe Workflow Agent: "Create a cosy autumn soup recipe"
+   → Produces complete publication-ready post with:
+   - Recipe with UK measurements
+   - Engaging blog-style content
+   - SEO optimization
+   - Image generation prompt
+   - All Jekyll frontmatter
+   - Ready to copy into _posts/YYYY-MM-DD-recipe-name.markdown
+```
+
+#### Creating a New Recipe (Traditional Multi-Agent Method)
 ```
 1. Recipe Creator Agent: Develop "Easy Vegan Shepherd's Pie"
 2. Image Generation Agent: Plan hero and process images
@@ -276,7 +357,26 @@ The agents and skills in this directory work together to produce well-structured
 
 ## Agent Collaboration
 
-The agents are designed to work together in a collaborative workflow:
+### 🆕 Unified Workflow (Recommended for Recipes)
+```
+┌────────────────────────────────────────────┐
+│        Recipe Workflow Agent               │
+│                                            │
+│  Combines:                                 │
+│  • Recipe Development                      │
+│  • Copywriting                             │
+│  • SEO Optimization                        │
+│  • Image Planning                          │
+│  • Editorial Review                        │
+│  • Publication Formatting                  │
+└────────────────────────────────────────────┘
+                   │
+                   ▼
+           Publication-Ready Post
+```
+
+### Traditional Multi-Agent Workflow
+The specialized agents are designed to work together in a collaborative workflow:
 
 ```
 ┌─────────────────┐     ┌──────────────┐     ┌─────────────┐
@@ -295,14 +395,16 @@ All agents reference the shared **Skills** for consistency.
 
 ## Tips for Best Results
 
-1. **Start with the right agent**: Use Recipe Creator for recipes, Copywriter for articles
-2. **Follow the workflow**: Creation → Optimization → Review → Publication
-3. **Reference the skills**: All agents should follow the standards in the skills directory
-4. **Be specific**: Provide clear requirements (topic, keywords, target audience)
-5. **Iterate**: Use Editor Agent feedback to improve content before publishing
-6. **Maintain consistency**: Use the same tone, style, and standards across all content
-7. **Think SEO early**: Involve SEO Specialist Agent early in content planning
-8. **Be ethical**: Follow Affiliate Manager Agent guidelines for any commercial content
+1. **🆕 Use Recipe Workflow Agent for recipes**: One-step process for complete, publication-ready recipe posts
+2. **Start with the right agent**: Use Recipe Workflow for recipes, Copywriter for articles
+3. **Be specific with Recipe Workflow**: Provide details like meal type, cuisine, difficulty, or occasion
+4. **Traditional workflow for articles**: Creation → Optimization → Review → Publication
+5. **Reference the skills**: All agents follow the standards in the skills directory
+6. **Be specific**: Provide clear requirements (topic, keywords, target audience)
+7. **Iterate if needed**: Use Editor Agent for additional refinement if required
+8. **Maintain consistency**: Use the same tone, style, and standards across all content
+9. **Think SEO early**: Recipe Workflow includes SEO, but for articles involve SEO Specialist early
+10. **Be ethical**: Follow Affiliate Manager Agent guidelines for any commercial content
 
 ## Updating Agents and Skills
 
@@ -322,6 +424,6 @@ If you encounter issues or have suggestions for improving these agents:
 
 ---
 
-**Version**: 1.0  
+**Version**: 2.0 (Added Unified Recipe Workflow Agent)  
 **Last Updated**: 3rd February 2026  
 **Maintained by**: PlantBased.Blog Team
