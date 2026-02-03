@@ -1,8 +1,6 @@
 ---
-name: British English Standards
+name: british-english-standards
 description: UK language conventions, measurements, and terminology standards for PlantBased.Blog
-version: 1.0.0
-type: skill
 ---
 
 # British English Standards Skill
