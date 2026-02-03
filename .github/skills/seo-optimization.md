@@ -1,3 +1,10 @@
+---
+name: SEO Optimization
+description: Search engine optimization best practices for food blogs and recipe content targeting UK market
+version: 1.0.0
+type: skill
+---
+
 # SEO Optimization Skill
 
 ## On-Page SEO Standards
