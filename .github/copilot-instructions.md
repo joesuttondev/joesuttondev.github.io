@@ -142,6 +142,7 @@ All agents reference these skills for consistency:
 - **british-english-standards.md** - Language conventions and UK standards
 - **recipe-formatting.md** - Recipe structure guidelines
 - **seo-optimization.md** - SEO best practices for UK market
+- **ui-styling-standards.md** - UI design, colour palette, and visual styling guidelines
 
 ## Development Commands
 
@@ -198,6 +199,62 @@ bundle exec jekyll serve --drafts --future
 - Use 2-space indentation
 - Keep Gemfile organized and commented
 
+## UI and Styling Guidelines
+
+### Design System
+
+PlantBased.Blog uses a **nature-inspired design system** with modern, clean aesthetics:
+
+- **Colour Palette**: Greens, earth tones, and warm accents (sage, cream, terracotta)
+- **Typography**: System fonts for performance and readability
+- **Layout**: Clean, spacious, optimised for recipe readability
+- **Responsive**: Mobile-first design that works on all devices
+
+### Key Styling Principles
+
+1. **Use Semantic Markdown**: Let CSS handle styling - don't add inline styles
+2. **Heading Hierarchy**: Always use H2 → H3 → H4 in proper order
+3. **Lists**: Use unordered lists for ingredients, ordered lists for instructions
+4. **Blockquotes**: Use for tips, notes, and serving suggestions
+5. **Images**: Always include descriptive alt text
+
+### Recipe Formatting for Visual Appeal
+
+When creating recipes, follow this structure for optimal styling:
+
+```markdown
+## Ingredients
+
+### For the Base
+- Ingredient 1
+- Ingredient 2
+
+## Instructions
+
+1. First step with clear description
+2. Second step with clear description
+
+> **Top Tip**: Use blockquotes for helpful tips!
+```
+
+This produces:
+- Ingredients in cream-coloured boxes with green border
+- Instructions with numbered circular badges
+- Tips in terracotta-bordered callout boxes
+
+### Content Creators - Style Checklist
+
+- ✅ Use proper heading hierarchy (H2 for sections, H3 for subsections)
+- ✅ Use unordered lists (`-`) for ingredients
+- ✅ Use ordered lists (`1.`) for instructions
+- ✅ Use blockquotes (`>`) for tips and notes
+- ✅ Include alt text for all images
+- ❌ Don't use inline styles or custom HTML
+- ❌ Don't use colours outside the defined palette
+- ❌ Don't use custom fonts
+
+For complete styling guidelines, see `.github/skills/ui-styling-standards/SKILL.md`
+
 ## What NOT to Do
 
 - ❌ Don't use American English spelling
@@ -208,6 +265,9 @@ bundle exec jekyll serve --drafts --future
 - ❌ Don't use incorrect file naming (must be YYYY-MM-DD-slug.markdown)
 - ❌ Don't ignore SEO optimization
 - ❌ Don't add affiliate content without proper disclosure
+- ❌ Don't add inline styles or custom CSS to posts
+- ❌ Don't override the defined colour palette
+- ❌ Don't break responsive design with fixed widths
 
 ## Common Tasks
 
