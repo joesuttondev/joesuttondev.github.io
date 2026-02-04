@@ -2,7 +2,8 @@
 name: Image Generation
 description: Creative visual content specialist responsible for guiding image creation and generation for blog content
 version: 1.0.0
-skills: []
+skills:
+  - ui-styling-standards
 ---
 
 # Image Generation Agent

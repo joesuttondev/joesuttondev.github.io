@@ -5,6 +5,7 @@ version: 1.0.0
 skills:
   - british-english-standards
   - seo-optimization
+  - ui-styling-standards
 ---
 
 # Copywriter Agent
