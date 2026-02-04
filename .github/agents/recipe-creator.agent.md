@@ -5,6 +5,7 @@ version: 1.0.0
 skills:
   - recipe-formatting
   - british-english-standards
+  - ui-styling-standards
 ---
 
 # Recipe Creator Agent

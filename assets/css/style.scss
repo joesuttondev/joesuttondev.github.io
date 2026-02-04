@@ -1,0 +1,458 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+/* ==========================================================================
+   PlantBased.Blog Custom Styles
+   Modern, nature-inspired design for plant-based recipes and wellness
+   ========================================================================== */
+
+/* Color Palette - Nature-Inspired
+   ========================================================================== */
+:root {
+  /* Primary colors - Fresh greens and earth tones */
+  --primary-green: #5a7d5a;
+  --primary-green-light: #7a9d7a;
+  --primary-green-dark: #3a5a3a;
+  
+  /* Accent colors - Warm and inviting */
+  --accent-sage: #b7c9b7;
+  --accent-cream: #f8f6f1;
+  --accent-terracotta: #d97757;
+  --accent-golden: #daa520;
+  
+  /* Neutral colors */
+  --text-primary: #2d3436;
+  --text-secondary: #636e72;
+  --background-primary: #ffffff;
+  --background-secondary: #fafaf8;
+  --border-color: #e8e6e1;
+  
+  /* Recipe card colors */
+  --recipe-card-bg: #ffffff;
+  --recipe-card-border: #e8e6e1;
+  --recipe-card-shadow: rgba(90, 125, 90, 0.1);
+}
+
+/* Typography - Modern and Readable
+   ========================================================================== */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: var(--text-primary);
+  background-color: var(--background-secondary);
+  line-height: 1.7;
+  font-size: 17px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  color: var(--primary-green-dark);
+  margin-top: 2em;
+  margin-bottom: 0.75em;
+  line-height: 1.3;
+}
+
+h1 {
+  font-size: 2.5em;
+  letter-spacing: -0.5px;
+}
+
+h2 {
+  font-size: 2em;
+  border-bottom: 3px solid var(--accent-sage);
+  padding-bottom: 0.3em;
+  margin-top: 1.5em;
+}
+
+h3 {
+  font-size: 1.5em;
+  color: var(--primary-green);
+}
+
+/* Header and Navigation
+   ========================================================================== */
+.site-header {
+  background-color: var(--background-primary);
+  border-top: 5px solid var(--primary-green);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.site-title {
+  font-size: 1.8em;
+  font-weight: 800;
+  color: var(--primary-green-dark) !important;
+  letter-spacing: -0.5px;
+  
+  &:hover {
+    color: var(--primary-green) !important;
+    text-decoration: none;
+  }
+}
+
+.site-nav {
+  .page-link {
+    color: var(--text-secondary);
+    font-weight: 500;
+    
+    &:hover {
+      color: var(--primary-green);
+      text-decoration: none;
+    }
+  }
+}
+
+/* Main Content Area
+   ========================================================================== */
+.wrapper {
+  max-width: 900px;
+  background-color: var(--background-primary);
+  padding: 3em 2em;
+  margin: 2em auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.page-content {
+  background-color: var(--background-secondary);
+}
+
+/* Post Styling
+   ========================================================================== */
+.post-header {
+  margin-bottom: 2em;
+  padding-bottom: 1.5em;
+  border-bottom: 2px solid var(--accent-sage);
+}
+
+.post-title {
+  color: var(--primary-green-dark);
+  margin-bottom: 0.5em;
+  line-height: 1.2;
+}
+
+.post-meta {
+  font-size: 0.95em;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.post-content {
+  margin-top: 2em;
+  
+  p {
+    margin-bottom: 1.5em;
+    line-height: 1.8;
+  }
+  
+  /* Recipe ingredients styling */
+  ul {
+    background-color: var(--accent-cream);
+    padding: 1.5em 2em;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-green);
+    margin: 1.5em 0;
+    
+    li {
+      margin-bottom: 0.5em;
+      line-height: 1.6;
+    }
+  }
+  
+  /* Recipe instructions styling */
+  ol {
+    counter-reset: recipe-step;
+    list-style: none;
+    padding-left: 0;
+    margin: 2em 0;
+    
+    li {
+      counter-increment: recipe-step;
+      position: relative;
+      padding-left: 3em;
+      margin-bottom: 1.5em;
+      line-height: 1.7;
+      
+      &::before {
+        content: counter(recipe-step);
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-color: var(--primary-green);
+        color: white;
+        width: 2em;
+        height: 2em;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 0.9em;
+      }
+    }
+  }
+  
+  /* Blockquote styling - for tips and notes */
+  blockquote {
+    background-color: var(--accent-cream);
+    border-left: 4px solid var(--accent-terracotta);
+    padding: 1em 1.5em;
+    margin: 2em 0;
+    border-radius: 4px;
+    font-style: italic;
+    color: var(--text-secondary);
+    
+    p {
+      margin-bottom: 0.5em;
+    }
+  }
+}
+
+/* Recipe Info Boxes (Prep time, servings, etc.)
+   ========================================================================== */
+.recipe-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1em;
+  margin: 2em 0;
+  padding: 1.5em;
+  background: linear-gradient(135deg, var(--accent-cream) 0%, var(--accent-sage) 100%);
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(90, 125, 90, 0.1);
+}
+
+.recipe-meta-item {
+  text-align: center;
+  padding: 0.5em;
+  
+  strong {
+    display: block;
+    color: var(--primary-green-dark);
+    font-size: 1.1em;
+    margin-bottom: 0.3em;
+  }
+}
+
+/* Post List (Homepage)
+   ========================================================================== */
+.post-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  
+  li {
+    margin-bottom: 3em;
+    padding: 2em;
+    background-color: var(--recipe-card-bg);
+    border: 1px solid var(--recipe-card-border);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px var(--recipe-card-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(90, 125, 90, 0.15);
+    }
+  }
+  
+  .post-link {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--primary-green-dark);
+    text-decoration: none;
+    display: block;
+    margin-bottom: 0.5em;
+    
+    &:hover {
+      color: var(--primary-green);
+    }
+  }
+  
+  .post-meta {
+    margin-bottom: 1em;
+  }
+  
+  .post-excerpt {
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+}
+
+/* Links
+   ========================================================================== */
+a {
+  color: var(--primary-green);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  
+  &:hover {
+    color: var(--primary-green-light);
+    text-decoration: underline;
+  }
+}
+
+/* Buttons and CTAs
+   ========================================================================== */
+.btn, button {
+  background-color: var(--primary-green);
+  color: white;
+  padding: 0.8em 2em;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  
+  &:hover {
+    background-color: var(--primary-green-dark);
+    transform: translateY(-2px);
+  }
+}
+
+/* Footer
+   ========================================================================== */
+.site-footer {
+  background-color: var(--primary-green-dark);
+  color: var(--accent-cream);
+  border-top: 4px solid var(--primary-green);
+  
+  a {
+    color: var(--accent-sage);
+    
+    &:hover {
+      color: var(--accent-cream);
+    }
+  }
+  
+  .footer-heading {
+    color: var(--accent-cream);
+  }
+}
+
+/* Code Blocks
+   ========================================================================== */
+pre, code {
+  background-color: var(--accent-cream);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+}
+
+pre {
+  padding: 1em;
+  overflow-x: auto;
+}
+
+code {
+  padding: 0.2em 0.4em;
+  font-size: 0.9em;
+}
+
+/* Tables (for nutritional info)
+   ========================================================================== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2em 0;
+  background-color: var(--background-primary);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  
+  th {
+    background-color: var(--primary-green);
+    color: white;
+    padding: 1em;
+    text-align: left;
+    font-weight: 600;
+  }
+  
+  td {
+    padding: 1em;
+    border-bottom: 1px solid var(--border-color);
+  }
+  
+  tr:hover {
+    background-color: var(--accent-cream);
+  }
+}
+
+/* Responsive Design
+   ========================================================================== */
+@media screen and (max-width: 800px) {
+  body {
+    font-size: 16px;
+  }
+  
+  .wrapper {
+    padding: 2em 1.5em;
+    margin: 1em auto;
+  }
+  
+  h1 {
+    font-size: 2em;
+  }
+  
+  h2 {
+    font-size: 1.6em;
+  }
+  
+  .post-list li {
+    padding: 1.5em;
+  }
+  
+  .post-list .post-link {
+    font-size: 1.5em;
+  }
+  
+  .recipe-meta {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .wrapper {
+    padding: 1.5em 1em;
+  }
+  
+  .post-content ol li {
+    padding-left: 2.5em;
+    
+    &::before {
+      width: 1.8em;
+      height: 1.8em;
+      font-size: 0.8em;
+    }
+  }
+}
+
+/* Accessibility
+   ========================================================================== */
+:focus {
+  outline: 3px solid var(--primary-green-light);
+  outline-offset: 2px;
+}
+
+/* Print Styles (for recipes)
+   ========================================================================== */
+@media print {
+  .site-header,
+  .site-footer,
+  .site-nav {
+    display: none;
+  }
+  
+  .wrapper {
+    box-shadow: none;
+    border: none;
+  }
+  
+  body {
+    background-color: white;
+  }
+  
+  a {
+    color: black;
+    text-decoration: none;
+  }
+}
